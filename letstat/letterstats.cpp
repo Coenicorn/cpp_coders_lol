@@ -4,7 +4,7 @@
 #include <vector>
 
 // store positions of vowels in the alphabet
-std::vector<int> vowelpositions = {1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0};
+const std::vector<int> vowelpositions = {1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0};
 
 /* takes string with lowercase letters marks the occurrences of each letter. Assumes input integrity */
 void checkOccurrences(std::string input)
@@ -54,26 +54,29 @@ void checkOccurrences(std::string input)
 
 std::string extractStreamContents(std::istream &stream)
 {
-    std::string output;
-    char c;
+    std::string out = "", l = "";
 
-    while (stream.get(c))
+    do
     {
-        output += c;
-    }
+        std::getline(stream, l);
 
-    return output;
+        std::cout << l;
+
+        out += l;
+    }
+    while (l.length() != 0);
+
+    return out;
 }
 
 int main(int argc, char *argv[])
 {
     std::string input;
-    std::istream *stream;
 
     // program is run without file input
     if (argc == 1)
     {
-        stream = &std::cin;
+        input = extractStreamContents(std::cin);
     }
 
     // program is run with file input
@@ -82,6 +85,20 @@ int main(int argc, char *argv[])
         std::cout << "cannot handle parameter list\n";
 
         return 1;
+    }
+    else if (argc == 2)
+    {
+        std::ifstream stream(argv[1]);
+
+        if (!stream.is_open())
+        {
+            // file does not exist
+            std::cout << "cannot open input file " << argv[2] << "\n";
+
+            return 1;
+        }
+
+        input = extractStreamContents(stream);
     }
 
     // no need for checking errors here since the input string is already processed
