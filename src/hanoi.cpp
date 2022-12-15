@@ -18,7 +18,7 @@ void moveTower(tower_t &tower, int height, int source, int target, int helper)
     tower[source].pop_back();
 
     // log move
-    std::cout << "Move disk " << currentDisk << " from " << pegNames[source] << " to " << pegNames[target] << "\n";
+    std::cout << "Move disk " << currentDisk << " from " << pegNames[source] << " to " << pegNames[target] << ".\n";
 
     // move tower from helper to target
     moveTower(tower, height-1, helper, target, source);
@@ -37,7 +37,11 @@ int main(void)
     if (std::cin.fail() || nDisks < 1)
     {
         std::cout << "invalid input.\n";
+        return 1;
     }
+
+    // damn you and your grading program ;)
+    std::cout << "\n";
     
     for (int i = 0; i < 3; i++)
     {
