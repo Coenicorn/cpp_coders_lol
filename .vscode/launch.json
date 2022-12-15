@@ -4,9 +4,8 @@
             "name": "C/C++: g++ build and debug active file",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/${fileBasenameNoExtension}",
+            "program": "${workspaceFolder}/build/${fileBasenameNoExtension}.out",
             "args": [
-                "${fileDirname}/text.txt"
             ],
             "stopAtEntry": false,
             "cwd": "${fileDirname}",
