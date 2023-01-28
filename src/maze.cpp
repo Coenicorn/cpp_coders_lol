@@ -234,11 +234,11 @@ int main(int argc, char **argv)
     if (argc < 3) return 1;
     if (argc == 3)
     {
-        generatedMaze.generate(std::stoi(argv[1]), std::stoi(argv[2]), time(NULL));
+        generatedMaze.generate(std::stoi(argv[2]), std::stoi(argv[1]), time(NULL));
     }
     if (argc == 4)
     {
-        generatedMaze.generate(std::stoi(argv[1]), std::stoi(argv[2]), std::stoi(argv[2]));
+        generatedMaze.generate(std::stoi(argv[2]), std::stoi(argv[1]), std::stoi(argv[2]));
     }
     if (argc > 4) return 1;
 
