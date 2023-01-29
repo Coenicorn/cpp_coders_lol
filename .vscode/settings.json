@@ -85,6 +85,8 @@
         "syncstream": "cpp",
         "thread": "cpp",
         "typeindex": "cpp",
-        "variant": "cpp"
+        "variant": "cpp",
+        "vector.h": "c",
+        "stdexcpt.h": "c"
     }
 }
