@@ -230,7 +230,7 @@ void Maze::printMaze(std::ostream &stream)
 int main(int argc, char **argv)
 {
     Maze generatedMaze;
-
+    
     if (argc < 3) return 1;
     if (argc == 3)
     {
